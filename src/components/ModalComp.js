@@ -110,11 +110,6 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
                     <Radio value='Deletada'>Deletada</Radio>
                   </Stack>
                 </RadioGroup>
-                {/* <Input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setDone(e.target.value)}
-                  /> */}
               </Box>
             </FormControl>
           </ModalBody>

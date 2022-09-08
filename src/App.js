@@ -38,7 +38,7 @@ const App = () => {
     .catch((err) => {
       console.error("ops! ocorreu um erro" + err);
     });
-     
+
   }, [setData]);
 
   const handleRemove = (done) => {
@@ -49,7 +49,6 @@ const App = () => {
       done: "Deletada"
     })
     .then((response) => {
-      setDataEdit({})
       console.log("response.data: ", response.data)
     })  
     .catch((err) => {
@@ -93,7 +92,7 @@ const App = () => {
                     <EditIcon
                       fontSize={20}
                       onClick={() => [
-                        setDataEdit(done),
+                        setDataEdit({ task, done, id }),
                         onOpen(),
                       ]}
                     />

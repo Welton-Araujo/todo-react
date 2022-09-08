@@ -73,11 +73,6 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
     console.log(task)
     console.log(done)
     
-
-    
-
-    //localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
-
     onClose();
   };
 

@@ -38,11 +38,7 @@ const App = () => {
     .catch((err) => {
       console.error("ops! ocorreu um erro" + err);
     });
-    /* const db_costumer = localStorage.getItem("cad_cliente")
-      ? JSON.parse(localStorage.getItem("cad_cliente"))
-      : []; */
-
-    
+     
   }, [setData]);
 
   const handleRemove = (done) => {

@@ -42,7 +42,7 @@ const App = () => {
   }, [setData]);
 
   const handleRemove = (done) => {
-    console.log("id:::", done.id)
+    console.log("id:::", done)
     api
     .patch("http://192.168.0.112:8080/api/todos/"+done.id+"/done",{
       task: done.task,
@@ -84,7 +84,7 @@ const App = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {data.map(({ task, done, id }) => (
+              {data.map(({ task, done, id }, index) => (
                 <Tr key={id} cursor="pointer " _hover={{ bg: "gray.100" }}>
                   <Td maxW={isMobile ? 5 : 100}>{task}</Td>
                   <Td maxW={isMobile ? 5 : 100}>{done}</Td>
@@ -92,7 +92,7 @@ const App = () => {
                     <EditIcon
                       fontSize={20}
                       onClick={() => [
-                        setDataEdit({ task, done, id }),
+                        setDataEdit({ task, done, id, index }),
                         onOpen(),
                       ]}
                     />
@@ -100,7 +100,7 @@ const App = () => {
                   <Td p={0}>
                     <DeleteIcon
                       fontSize={20}
-                      onClick={() => handleRemove({ task, done, id })}
+                      onClick={() => handleRemove({ task, done, id, index })}
                     />
                   </Td>
                 </Tr>

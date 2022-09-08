@@ -32,20 +32,18 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
     }
 
     if (Object.keys(dataEdit).length) {
-      console.log("fsadfsadf")
+      console.log("dataEdit: ", dataEdit)
       data[dataEdit.index] = { task, done };
-    console.log("id: ", dataEdit.id)
+      console.log("id: ", dataEdit.id)
     api
     .patch("http://192.168.0.112:8080/api/todos/"+dataEdit.id+"/done",{
       task: task,
       done: done
     })
     .then((response) => {
-      const newDataArray = !Object.keys(dataEdit).length
-      ? [...(data ? data : []), { task, done }]
-      : [...(data ? data : [])];
+      
 
-      setData(newDataArray);
+      //setData(newDataArray);
       console.log("response.data: ", response.data)
     })  
     .catch((err) => {

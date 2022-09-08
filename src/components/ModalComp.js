@@ -22,7 +22,7 @@ import api from "../services/api";
 const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
   const [task, setName] = useState(dataEdit.task || "");
   const [done, setDone] = useState(dataEdit.done || "1");
-  const [id] = useState(dataEdit.id);
+  //const [id] = useState(dataEdit.id);
 
   const handleSave = () => {
     if (!task || !done) return;
@@ -34,9 +34,9 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
     if (Object.keys(dataEdit).length) {
       console.log("fsadfsadf")
       data[dataEdit.index] = { task, done };
-    console.log("id: ", id)
+    console.log("id: ", dataEdit.id)
     api
-    .patch("http://192.168.0.112:8080/api/todos/"+id+"/done",{
+    .patch("http://192.168.0.112:8080/api/todos/"+dataEdit.id+"/done",{
       task: task,
       done: done
     })
